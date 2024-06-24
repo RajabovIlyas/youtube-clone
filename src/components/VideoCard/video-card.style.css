@@ -1,0 +1,39 @@
+@tailwind components;
+
+@layer components {
+    .video-card-container {
+        @apply flex flex-col gap-2
+    }
+
+    .video-card-img-box {
+        @apply relative w-full
+    }
+
+    .video-card-img {
+        @apply rounded-lg w-full
+    }
+
+    .video-card-img_time-box {
+        @apply absolute right-2 bottom-1.5 bg-black/50 rounded flex justify-center items-center
+    }
+
+    .video-card-img_time {
+        @apply text-xs mx-1 my-0.5
+    }
+
+    .video-card-channel-img {
+        @apply rounded-full w-10 h-10 object-cover hover:border-2 border-solid border-sky-600 transition-all duration-75
+    }
+
+    .video-card-description {
+        @apply flex flex-col gap-1
+    }
+
+    .video-card-channel_title {
+        @apply text-sm text-gray-400 hover:text-gray-500
+    }
+
+    .video-card-publish {
+        @apply before:content-["•"] before:mx-1 text-sm
+    }
+}

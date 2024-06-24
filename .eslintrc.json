@@ -1,3 +1,14 @@
 {
-  "extends": "next/core-web-vitals"
+  "root": true,
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  "ignorePatterns": [".next", ".eslintrc.cjs", "node_modules"],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react-hooks/exhaustive-deps": "off"
+  }
 }
