@@ -10,7 +10,7 @@
     }
 
     .video-card-img {
-        @apply rounded-lg w-full
+        @apply rounded-lg w-full min-h-44
     }
 
     .video-card-img_time-box {

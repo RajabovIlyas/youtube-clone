@@ -1,4 +1,4 @@
-import { getVideoUrl } from "@/constants/endpoints.constant";
+import { getVideoUrl } from "@/constants/endpoints-api.constant";
 import { ResVideosModel, VideoModel } from "@/models/video.model";
 import { fetcher } from "@/services/fetcher.server";
 import { videoConverter } from "@/converters/video.converter";

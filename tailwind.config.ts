@@ -13,9 +13,6 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-      maxWidth: {
-        "68": "17rem",
-      },
       gridTemplateColumns: {
         "auto-fill-320": "repeat(auto-fill, minmax(320px, 1fr))",
         "auto-fit-320": "repeat(auto-fit, minmax(320px, 1fr))",

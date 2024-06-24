@@ -25,7 +25,12 @@ const VideoCard: FC<VideoModel> = ({
     <div className="video-card-container">
       <div className="video-card-img-box">
         <a href={videoWatchUrl}>
-          <img src={img} className="video-card-img" alt={title} />
+          <img
+            src={img}
+            className="video-card-img"
+            alt={title}
+            loading="lazy"
+          />
           <div className="video-card-img_time-box">
             <span className="video-card-img_time">{time}</span>
           </div>
@@ -38,6 +43,7 @@ const VideoCard: FC<VideoModel> = ({
               src={channelImg}
               className="video-card-channel-img"
               alt={channelName}
+              loading="lazy"
             />
           </a>
         </div>
