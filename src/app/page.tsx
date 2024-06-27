@@ -1,12 +1,13 @@
 import { getVideoUrl } from "@/constants/endpoints-api.constant";
-import { ResVideosModel, VideoModel } from "@/models/video.model";
+import { ResVideosModel } from "@/models/video.model";
 import { fetcher } from "@/services/fetcher.server";
 import { videoConverter } from "@/converters/video.converter";
 import VideoCard from "@/components/VideoCard";
+import { VideoCardModel } from "@/models/video-card.model";
 
 const getVideos = async (
   nextPageToken = "",
-): Promise<VideoModel[] | undefined> => {
+): Promise<VideoCardModel[] | undefined> => {
   try {
     const res = await fetcher<ResVideosModel>(getVideoUrl(nextPageToken, 16));
 

@@ -6,3 +6,11 @@ export const getVideoUrl = (nextPageToken?: string, maxResult = 8) =>
 
 export const getChannelUrl = (channelId: string) =>
   `${BASE_URL}/channels?part=snippet&id=${channelId}&key=${process.env.GOOGLE_API_KEY_10}`;
+
+export const getSearchUrl = (search_query: string, pageToken = "") =>
+  `${BASE_URL}/search?part=snippet&maxResults=8&type=video&videoDuration=medium` +
+  `&pageToken=${pageToken}&q=${search_query}&key=${process.env.GOOGLE_API_KEY_7}`;
+
+export const getVideoPartUrl = (idVideo: string, pageToken = "") =>
+  `${BASE_URL}/videos?part=contentDetails, statistics` +
+  `&id=${idVideo}&key=${process.env.GOOGLE_API_KEY_3}`;

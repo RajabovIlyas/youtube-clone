@@ -1,5 +1,7 @@
 // https://youtube.googleapis.com/youtube/vnumber/channels?part=snippet&id=UCnumberWXzTgknumberncJXnumbereOxHElCg&key=AIzaSyByblBnumberPzBhpc
 
+import { ThumbnailsModel } from "@/models/thumbnails.model";
+
 export interface ResChannelItemModel {
   kind: string;
   etag: string;
@@ -9,23 +11,7 @@ export interface ResChannelItemModel {
     description: string;
     customUrl: string;
     publishedAt: string;
-    thumbnails: {
-      default: {
-        url: string;
-        width: number;
-        height: number;
-      };
-      medium: {
-        url: string;
-        width: number;
-        height: number;
-      };
-      high: {
-        url: string;
-        width: number;
-        height: number;
-      };
-    };
+    thumbnails: ThumbnailsModel;
     localized: {
       title: string;
       description: string;

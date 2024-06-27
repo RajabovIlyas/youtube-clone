@@ -1,6 +1,8 @@
 // https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&maxResults=8&chart=mostPopular&regionCode=IN&pageToken=&videoDuration=medium&key=AIzaSyBqrWUXFpSlhc1o-HoDYsx8Ed4JdXWWAFE
 
-export interface ResVideoModel {
+import { ThumbnailsFullModel } from "@/models/thumbnails.model";
+
+export interface VideoModel {
   kind: string;
   etag: string;
   id: string;
@@ -9,33 +11,7 @@ export interface ResVideoModel {
     channelId: string;
     title: string;
     description: string;
-    thumbnails: {
-      default: {
-        url: string;
-        width: number;
-        height: number;
-      };
-      medium: {
-        url: string;
-        width: number;
-        height: number;
-      };
-      high: {
-        url: string;
-        width: number;
-        height: number;
-      };
-      standard: {
-        url: string;
-        width: number;
-        height: number;
-      };
-      maxres: {
-        url: string;
-        width: number;
-        height: number;
-      };
-    };
+    thumbnails: ThumbnailsFullModel;
     channelTitle: string;
     tags: string[];
     categoryId: string;
@@ -66,23 +42,11 @@ export interface ResVideoModel {
 export interface ResVideosModel {
   kind: string;
   etag: string;
-  items: ResVideoModel[];
+  items: VideoModel[];
   nextPageToken: string;
+  prevPageToken?: string;
   pageInfo: {
     totalResults: number;
     resultsPerPage: number;
   };
-}
-
-export interface VideoModel {
-  id: string;
-  img: string;
-  title: string;
-  channelId: string;
-  channelName: string;
-  channelImg: string;
-  description: string;
-  time: string;
-  views: string;
-  publishedAt: string;
 }

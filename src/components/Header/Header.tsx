@@ -7,10 +7,15 @@ import UserIcon from "@/components/icons/UserIcon";
 import { useState } from "react";
 import BackIcon from "@/components/icons/BackIcon";
 import { useResize } from "@/components/Header/use-resize.hook";
+import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 
 const Header = () => {
+  const searchParams = useSearchParams();
   const [searchShow, setSearchShow] = useState(false);
   const { isScreenSm } = useResize();
+
+  const searchQuery = searchParams.get("search_query");
 
   const openSearchShow = (newSearchShow: boolean) => () =>
     setSearchShow(newSearchShow);
@@ -23,55 +28,78 @@ const Header = () => {
             <BackIcon />
           </button>
         </div>
-        <div className="flex-grow justify-center items-center flex py-2">
+        <form
+          action="/results"
+          className="flex-grow justify-center items-center flex py-2"
+        >
           <input
             className="h-10 w-full bg-zinc-900 rounded-l-full focus-visible:border-sky-700 focus-visible:outline-0 pl-5 pr-2"
-            name="search"
+            name="search_query"
+            defaultValue={searchQuery || ""}
           />
-          <button className="flex justify-center items-center px-3  bg-zinc-900 rounded-r-full w-16 h-10 hover:bg-zinc-800">
+          <button
+            type="submit"
+            className="flex justify-center items-center px-3  bg-zinc-900 rounded-r-full w-16 h-10 hover:bg-zinc-800"
+          >
             <SearchIcon />
           </button>
-        </div>
+        </form>
       </header>
     );
   }
 
   return (
     <header className="flex justify-between items-center px-4">
-      <a href="/">
-        <div className="py-3 md:px-3 flex gap-1">
+      <Link href="/">
+        <div className="py-3 sm:px-3 flex gap-1">
           <LogoIcon />
           <div>
             <span className="dark:text-white">Raj</span>
             <span className="text-sky-500">Tube</span>
           </div>
         </div>
-      </a>
-      <div className="max-w-96 flex-grow justify-center items-center sm:flex hidden">
+      </Link>
+      <form
+        action="/results"
+        className="max-w-lg flex-grow justify-center items-center sm:flex hidden"
+      >
         <input
           className="h-10 w-full bg-zinc-900 rounded-l-full focus-visible:border-sky-700 focus-visible:outline-0 pl-5 pr-2"
-          name="search"
+          name="search_query"
+          defaultValue={searchQuery || ""}
         />
-        <button className="flex justify-center items-center px-3 bg-zinc-900 rounded-r-full w-16 h-10 hover:bg-zinc-800">
+        <button
+          type="submit"
+          className="flex justify-center items-center px-3 bg-zinc-900 rounded-r-full w-16 h-10 hover:bg-zinc-800"
+        >
           <SearchIcon />
         </button>
-      </div>
-      <div className="flex justify-center items-center gap-1 md:gap-2 md:px-3 py-2">
+      </form>
+      <div className="flex justify-center items-center gap-1 sm:gap-2 sm:px-3 py-2">
         <button
           className="sm:hidden w-10 h-10 rounded-full flex justify-center items-center hover:bg-zinc-800 cursor-pointer"
           onClick={openSearchShow(true)}
         >
           <SearchIcon />
         </button>
-        <button className="w-10 h-10 rounded-full flex justify-center items-center hover:bg-zinc-800 cursor-pointer">
+        <Link
+          href="#"
+          className="w-10 h-10 rounded-full flex justify-center items-center hover:bg-zinc-800 cursor-pointer"
+        >
           <AddIcon />
-        </button>
-        <button className="w-10 h-10 rounded-full flex justify-center items-center hover:bg-zinc-800 cursor-pointer">
+        </Link>
+        <Link
+          href="#"
+          className="w-10 h-10 rounded-full flex justify-center items-center hover:bg-zinc-800 cursor-pointer"
+        >
           <BellIcon />
-        </button>
-        <button className="w-8 h-8 rounded-full bg-sky-600 flex justify-center items-center hover:bg-sky-700 cursor-pointer">
+        </Link>
+        <Link
+          href="#"
+          className="w-8 h-8 rounded-full bg-sky-600 flex justify-center items-center hover:bg-sky-700 cursor-pointer"
+        >
           <UserIcon className="" />
-        </button>
+        </Link>
       </div>
     </header>
   );

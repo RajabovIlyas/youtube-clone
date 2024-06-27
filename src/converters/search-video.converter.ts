@@ -1,26 +1,28 @@
-import { VideoModel } from "@/models/video.model";
 import { getTimeByDuration } from "@/converters/format.converter";
 import moment from "moment";
 import { fetcher } from "@/services/fetcher.server";
-import { getChannelUrl } from "@/constants/endpoints-api.constant";
-import { ResChannelModel } from "@/models/channel.model";
+import {
+  getChannelUrl,
+  getVideoPartUrl,
+} from "@/constants/endpoints-api.constant";
+import { SearchVideoModel } from "@/models/search.model";
+import { ResVideoPartsModel } from "@/models/video-part.model";
 import { VideoCardModel } from "@/models/video-card.model";
+import { ResChannelModel } from "@/models/channel.model";
 
-export const videoConverter = async ({
+export const searchVideoConverter = async ({
   id,
   snippet,
-  statistics,
-  contentDetails,
-}: Pick<
-  VideoModel,
-  "id" | "snippet" | "statistics" | "contentDetails"
->): Promise<VideoCardModel> => {
-  const channel = await fetcher<ResChannelModel>(
-    getChannelUrl(snippet.channelId),
-  );
+}: SearchVideoModel): Promise<VideoCardModel> => {
+  const [videoPart, channel] = await Promise.all([
+    fetcher<ResVideoPartsModel>(getVideoPartUrl(id.videoId)),
+    fetcher<ResChannelModel>(getChannelUrl(snippet.channelId)),
+  ]);
+
+  const { contentDetails, statistics } = videoPart.items[0];
 
   return {
-    id: id,
+    id: id.videoId,
     img: snippet.thumbnails.medium.url,
     title: snippet.title,
     channelId: snippet.channelId,

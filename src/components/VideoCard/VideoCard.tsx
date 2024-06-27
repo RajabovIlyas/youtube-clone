@@ -1,13 +1,15 @@
 "use client";
 import { FC } from "react";
-import { VideoModel } from "@/models/video.model";
+import { VideoCardModel } from "@/models/video-card.model";
 import {
   getChannelPageUrl,
   getVideoWatchUrl,
 } from "@/constants/endpoints.constant";
 import "./video-card.style.css";
+import Link from "next/link";
+import Image from "next/image";
 
-const VideoCard: FC<VideoModel> = ({
+const VideoCard: FC<VideoCardModel> = ({
   id,
   title,
   img,
@@ -24,9 +26,11 @@ const VideoCard: FC<VideoModel> = ({
   return (
     <div className="video-card-container">
       <div className="video-card-img-box">
-        <a href={videoWatchUrl}>
-          <img
+        <Link href={videoWatchUrl}>
+          <Image
             src={img}
+            width={320}
+            height={180}
             className="video-card-img"
             alt={title}
             loading="lazy"
@@ -34,20 +38,22 @@ const VideoCard: FC<VideoModel> = ({
           <div className="video-card-img_time-box">
             <span className="video-card-img_time">{time}</span>
           </div>
-        </a>
+        </Link>
       </div>
       <div className="flex gap-2">
         <div className="min-w-10">
-          <a href={channelUrl}>
-            <img
+          <Link href={channelUrl}>
+            <Image
+              width={40}
+              height={40}
               src={channelImg}
               className="video-card-channel-img"
               alt={channelName}
               loading="lazy"
             />
-          </a>
+          </Link>
         </div>
-        <a href={videoWatchUrl}>
+        <Link href={videoWatchUrl}>
           <div className="video-card-description">
             <p className="line-clamp-2 font-bold">{title}</p>
             <p className="video-card-channel_title">{channelName}</p>
@@ -56,7 +62,7 @@ const VideoCard: FC<VideoModel> = ({
               <span className="video-card-publish">{publishedAt}</span>
             </div>
           </div>
-        </a>
+        </Link>
       </div>
     </div>
   );
