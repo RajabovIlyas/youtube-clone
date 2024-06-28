@@ -4,6 +4,7 @@ import { ResSearchModel } from "@/models/search.model";
 import VideoCard from "@/components/VideoCard";
 import { searchVideoConverter } from "@/converters/search-video.converter";
 import { VideoCardModel } from "@/models/video-card.model";
+import Header from "@/components/Header";
 
 interface HomeProps {
   searchParams: { search_query: string };
@@ -18,9 +19,7 @@ const getVideosBySearchQuery = async (
       getSearchUrl(search_query, nextPageToken),
     );
 
-    const items = await Promise.all(res.items.map(searchVideoConverter));
-
-    return items;
+    return Promise.all(res.items.map(searchVideoConverter));
   } catch (error) {
     if (error instanceof Error) {
       console.log("error", error.message);
@@ -41,5 +40,4 @@ export default async function Home({
       </div>
     </main>
   );
-  return <main className="pt-5 mx-auto px-4 max-w-screen-2xl"></main>;
 }
