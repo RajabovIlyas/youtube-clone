@@ -16,7 +16,7 @@ const SearchInput: FC<SearchInputProps> = ({ searchQuery }) => {
   return (
     <input
       className="h-10 w-full bg-zinc-900 rounded-l-full focus-visible:border-sky-700 focus-visible:outline-0 pl-5 pr-2"
-      name="search_query"
+      name="searchQuery"
       defaultValue={searchQuery || ""}
     />
   );

@@ -1,6 +1,6 @@
 import { getTimeByDuration } from "@/converters/format.converter";
 import moment from "moment";
-import { fetcher } from "@/services/fetcher.server";
+import { fetcher } from "@/services/fetcher.service";
 import {
   getChannelUrl,
   getVideoPartUrl,

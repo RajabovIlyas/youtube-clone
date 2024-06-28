@@ -20,7 +20,7 @@ const Header = () => {
 
   if (searchShow && !isScreenSm) {
     return (
-      <header className="flex justify-between items-center px-4 gap-2">
+      <header className="sticky pb-4 top-0 z-20 dark:bg-black flex justify-between items-center px-4 gap-2">
         <div className="w-10 h-10 rounded-full flex justify-center items-center hover:bg-zinc-800 cursor-pointer">
           <button onClick={openSearchShow(false)}>
             <BackIcon />
@@ -32,46 +32,44 @@ const Header = () => {
   }
 
   return (
-    <Suspense>
-      <header className="flex justify-between items-center px-4">
-        <Link href="/">
-          <div className="py-3 sm:px-3 flex gap-1">
-            <LogoIcon />
-            <div>
-              <span className="dark:text-white">Raj</span>
-              <span className="text-sky-500">Tube</span>
-            </div>
+    <header className="sticky pb-4 top-0 z-20 dark:bg-black flex justify-between items-center px-4">
+      <Link href="/">
+        <div className="py-3 sm:px-3 flex gap-1">
+          <LogoIcon />
+          <div>
+            <span className="dark:text-white">Raj</span>
+            <span className="text-sky-500">Tube</span>
           </div>
-        </Link>
-        <SearchForm className="sm:flex hidden" />
-        <div className="flex justify-center items-center gap-1 sm:gap-2 sm:px-3 py-2">
-          <button
-            className="sm:hidden w-10 h-10 rounded-full flex justify-center items-center hover:bg-zinc-800 cursor-pointer"
-            onClick={openSearchShow(true)}
-          >
-            <SearchIcon />
-          </button>
-          <Link
-            href="#"
-            className="w-10 h-10 rounded-full flex justify-center items-center hover:bg-zinc-800 cursor-pointer"
-          >
-            <AddIcon />
-          </Link>
-          <Link
-            href="#"
-            className="w-10 h-10 rounded-full flex justify-center items-center hover:bg-zinc-800 cursor-pointer"
-          >
-            <BellIcon />
-          </Link>
-          <Link
-            href="#"
-            className="w-8 h-8 rounded-full bg-sky-600 flex justify-center items-center hover:bg-sky-700 cursor-pointer"
-          >
-            <UserIcon className="" />
-          </Link>
         </div>
-      </header>
-    </Suspense>
+      </Link>
+      <SearchForm className="sm:flex hidden" />
+      <div className="flex justify-center items-center gap-1 sm:gap-2 sm:px-3 py-2">
+        <button
+          className="sm:hidden w-10 h-10 rounded-full flex justify-center items-center hover:bg-zinc-800 cursor-pointer"
+          onClick={openSearchShow(true)}
+        >
+          <SearchIcon />
+        </button>
+        <Link
+          href="#"
+          className="w-10 h-10 rounded-full flex justify-center items-center hover:bg-zinc-800 cursor-pointer"
+        >
+          <AddIcon />
+        </Link>
+        <Link
+          href="#"
+          className="w-10 h-10 rounded-full flex justify-center items-center hover:bg-zinc-800 cursor-pointer"
+        >
+          <BellIcon />
+        </Link>
+        <Link
+          href="#"
+          className="w-8 h-8 rounded-full bg-sky-600 flex justify-center items-center hover:bg-sky-700 cursor-pointer"
+        >
+          <UserIcon className="" />
+        </Link>
+      </div>
+    </header>
   );
 };
 
