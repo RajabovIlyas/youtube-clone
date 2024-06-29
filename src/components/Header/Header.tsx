@@ -21,11 +21,12 @@ const Header = () => {
   if (searchShow && !isScreenSm) {
     return (
       <header className="header-container">
-        <div className="header_back-btn">
-          <button onClick={openSearchShow(false)}>
-            <BackIcon />
-          </button>
-        </div>
+        <button
+          className="header-container_item"
+          onClick={openSearchShow(false)}
+        >
+          <BackIcon />
+        </button>
         <SearchForm className="flex py-2" />
       </header>
     );
@@ -44,9 +45,9 @@ const Header = () => {
       </Link>
       <SearchForm className="sm:flex hidden" />
       <ul className="header-container_items">
-        <li>
+        <li className="sm:hidden">
           <button
-            className="sm:hidden header-container_item"
+            className="header-container_item"
             onClick={openSearchShow(true)}
           >
             <SearchIcon />
