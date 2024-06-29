@@ -6,7 +6,7 @@ const BellIcon = () => (
     id="notification-bell"
     data-name="Line Color"
     xmlns="http://www.w3.org/2000/svg"
-    className="size-6 dark:fill-slate-200"
+    className="size-6 dark:fill-slate-200 fill-black"
   >
     <path
       id="secondary"
@@ -16,7 +16,7 @@ const BellIcon = () => (
     <path
       id="primary"
       d="M19.38,14.38a2.12,2.12,0,0,1,.62,1.5h0A2.12,2.12,0,0,1,17.88,18H6.12A2.12,2.12,0,0,1,4,15.88H4a2.12,2.12,0,0,1,.62-1.5L6,13V9a6,6,0,0,1,6-6h0a6,6,0,0,1,6,6v4Z"
-      className="fill-none dark:stroke-white stroke-2"
+      className="fill-none dark:stroke-white stroke-black stroke-2"
     ></path>
   </svg>
 );

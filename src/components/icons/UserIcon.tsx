@@ -6,7 +6,7 @@ interface UserIconProps {
   className?: string;
 }
 const UserIcon: FC<UserIconProps> = ({ className = "" }) => {
-  const newClassName = "size-6 dark:fill-slate-200 " + className;
+  const newClassName = "size-6 dark:fill-slate-200 fill-black " + className;
   return (
     <svg
       className={newClassName}

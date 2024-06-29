@@ -1,7 +1,7 @@
 import { VideoModel } from "@/models/video.model";
 import { getTimeByDuration } from "@/converters/format.converter";
 import moment from "moment";
-import { fetcher } from "@/services/fetcher.server";
+import { fetcher } from "@/services/fetcher.service";
 import { getChannelUrl } from "@/constants/endpoints-api.constant";
 import { ResChannelModel } from "@/models/channel.model";
 import { VideoCardModel } from "@/models/video-card.model";

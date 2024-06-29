@@ -7,9 +7,9 @@ import UserIcon from "@/components/icons/UserIcon";
 import { Suspense, useState } from "react";
 import BackIcon from "@/components/icons/BackIcon";
 import { useResize } from "@/components/Header/use-resize.hook";
-import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import SearchForm from "@/components/Header/SearchForm";
+import "./header.style.css";
 
 const Header = () => {
   const [searchShow, setSearchShow] = useState(false);
@@ -20,58 +20,56 @@ const Header = () => {
 
   if (searchShow && !isScreenSm) {
     return (
-      <header className="flex justify-between items-center px-4 gap-2">
-        <div className="w-10 h-10 rounded-full flex justify-center items-center hover:bg-zinc-800 cursor-pointer">
-          <button onClick={openSearchShow(false)}>
-            <BackIcon />
-          </button>
-        </div>
+      <header className="header-container">
+        <button
+          className="header-container_item"
+          onClick={openSearchShow(false)}
+        >
+          <BackIcon />
+        </button>
         <SearchForm className="flex py-2" />
       </header>
     );
   }
 
   return (
-    <Suspense>
-      <header className="flex justify-between items-center px-4">
-        <Link href="/">
-          <div className="py-3 sm:px-3 flex gap-1">
-            <LogoIcon />
-            <div>
-              <span className="dark:text-white">Raj</span>
-              <span className="text-sky-500">Tube</span>
-            </div>
+    <header className="header-container">
+      <Link href="/">
+        <div className="header-container_logo">
+          <LogoIcon />
+          <div>
+            <span className="dark:text-white">Raj</span>
+            <span className="text-sky-500">Tube</span>
           </div>
-        </Link>
-        <SearchForm className="sm:flex hidden" />
-        <div className="flex justify-center items-center gap-1 sm:gap-2 sm:px-3 py-2">
+        </div>
+      </Link>
+      <SearchForm className="sm:flex hidden" />
+      <ul className="header-container_items">
+        <li className="sm:hidden">
           <button
-            className="sm:hidden w-10 h-10 rounded-full flex justify-center items-center hover:bg-zinc-800 cursor-pointer"
+            className="header-container_item"
             onClick={openSearchShow(true)}
           >
             <SearchIcon />
           </button>
-          <Link
-            href="#"
-            className="w-10 h-10 rounded-full flex justify-center items-center hover:bg-zinc-800 cursor-pointer"
-          >
+        </li>
+        <li>
+          <Link href="#" className="header-container_item">
             <AddIcon />
           </Link>
-          <Link
-            href="#"
-            className="w-10 h-10 rounded-full flex justify-center items-center hover:bg-zinc-800 cursor-pointer"
-          >
+        </li>
+        <li>
+          <Link href="#" className="header-container_item">
             <BellIcon />
           </Link>
-          <Link
-            href="#"
-            className="w-8 h-8 rounded-full bg-sky-600 flex justify-center items-center hover:bg-sky-700 cursor-pointer"
-          >
+        </li>
+        <li>
+          <Link href="#" className="header-container_user">
             <UserIcon className="" />
           </Link>
-        </div>
-      </header>
-    </Suspense>
+        </li>
+      </ul>
+    </header>
   );
 };
 
