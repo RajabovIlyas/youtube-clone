@@ -17,7 +17,7 @@ const AddIcon = () => (
     <path
       id="primary"
       d="M7,21H20a1,1,0,0,0,1-1V5"
-      className="fill-none dark:stroke-white stroke-2"
+      className="fill-none dark:stroke-white stroke-black stroke-2"
     ></path>
     <rect
       id="primary-2"
@@ -27,7 +27,7 @@ const AddIcon = () => (
       width="14"
       height="14"
       rx="1"
-      className="fill-none dark:stroke-white stroke-2"
+      className="fill-none dark:stroke-white stroke-black stroke-2"
     ></rect>
   </svg>
 );

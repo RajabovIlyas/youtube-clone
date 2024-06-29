@@ -15,7 +15,7 @@ interface SearchInputProps {
 const SearchInput: FC<SearchInputProps> = ({ searchQuery }) => {
   return (
     <input
-      className="h-10 w-full bg-zinc-900 rounded-l-full focus-visible:border-sky-700 focus-visible:outline-0 pl-5 pr-2"
+      className="header-search_input"
       name="searchQuery"
       defaultValue={searchQuery || ""}
     />
@@ -24,23 +24,17 @@ const SearchInput: FC<SearchInputProps> = ({ searchQuery }) => {
 
 const SearchInputWithParams = () => {
   const searchParams = useSearchParams();
-  const searchQuery = searchParams.get("search_query");
+  const searchQuery = searchParams.get("searchQuery");
   return <SearchInput searchQuery={searchQuery} />;
 };
 
 const SearchForm: FC<SearchFormProps> = ({ className }) => {
   return (
-    <form
-      action="/"
-      className={"max-w-xl flex-grow justify-center items-center " + className}
-    >
+    <form action="/" className={"header-search_form " + className}>
       <Suspense fallback={<SearchInput />}>
         <SearchInputWithParams />
       </Suspense>
-      <button
-        type="submit"
-        className="flex justify-center items-center px-3 bg-zinc-900 rounded-r-full w-16 h-10 hover:bg-zinc-800"
-      >
+      <button type="submit" className="header-search_btn">
         <SearchIcon />
       </button>
     </form>

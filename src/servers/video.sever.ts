@@ -16,10 +16,11 @@ const DEFAULT_RESPONSE_VIDEO: ResponseVideo = {
 export const getVideosBySearchQuery = async (
   searchQuery: string,
   nextPage = "",
+  maxResult = 8,
 ): Promise<ResponseVideo> => {
   try {
     const { items, nextPageToken, pageInfo } = await fetcher<ResSearchModel>(
-      getSearchUrl(searchQuery, nextPage),
+      getSearchUrl(searchQuery, nextPage, maxResult),
     );
 
     return {

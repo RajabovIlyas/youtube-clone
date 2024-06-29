@@ -21,7 +21,7 @@ const SearchIcon = () => (
       cx="10.5"
       cy="10.5"
       r="7.5"
-      className="fill-none dark:stroke-white stroke-2"
+      className="fill-none dark:stroke-white stroke-black stroke-2"
     ></circle>
   </svg>
 );

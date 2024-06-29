@@ -9,7 +9,7 @@ export default async function Home({
   searchParams: { searchQuery },
 }: HomeProps) {
   const props = await (searchQuery
-    ? getVideosBySearchQuery(searchQuery)
+    ? getVideosBySearchQuery(searchQuery, "", 16)
     : getVideos("", 16));
 
   return <VideoContainer {...props} />;
