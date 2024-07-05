@@ -1,5 +1,3 @@
-"use client";
-
 const AddIcon = () => (
   <svg
     fill="#000000"

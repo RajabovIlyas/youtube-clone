@@ -1,0 +1,7 @@
+@tailwind components;
+
+@layer components {
+    .channel-img{
+        @apply rounded-full w-10 h-10 min-w-10 min-h-10 object-cover hover:border-2 border-solid border-sky-600 transition-all duration-75
+    }
+}

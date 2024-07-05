@@ -1,4 +1,3 @@
-"use client";
 const SearchIcon = () => (
   <svg
     fill="#000000"

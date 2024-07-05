@@ -4,10 +4,10 @@ import VideoCard from "@/components/VideoCard";
 import { useVideoContainer } from "@/components/VideoContainer/video-container.hook";
 import { ResponseVideo } from "@/models/video-params.model";
 import LoadingVideoCard from "@/components/VideoCard/LoadingVideoCard";
+import { LOADER_ITEMS } from "@/constants/default.constant";
 
 interface VideoContainerProps extends ResponseVideo {}
 
-const LOADER_ITEMS = Array.from({ length: 8 }).map((v, i) => i);
 const VideoContainer: FC<VideoContainerProps> = (props) => {
   const { videos, loading } = useVideoContainer(props);
   return (

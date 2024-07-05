@@ -36,6 +36,7 @@ export const videoInfoConverter = async ({
     channelFollowers: Intl.NumberFormat("en", { notation: "compact" }).format(
       +channel.statistics.subscriberCount,
     ),
+    keywords: snippet.tags,
     channelImg: channel.snippet.thumbnails.default.url,
     description: snippet.description,
     time: getTimeByDuration(contentDetails.duration),
@@ -45,6 +46,7 @@ export const videoInfoConverter = async ({
     likes: Intl.NumberFormat("en", { notation: "compact" }).format(
       +statistics.likeCount,
     ),
-    publishedAt: moment(snippet.publishedAt).fromNow(),
+    publishedAt: moment(snippet.publishedAt).format("ll"),
+    commentCount: statistics.commentCount,
   };
 };

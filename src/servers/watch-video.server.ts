@@ -1,5 +1,6 @@
 "use server";
 import {
+  ResponseComments,
   ResponseRecommendations,
   ResponseVideo,
 } from "@/models/video-params.model";
@@ -20,6 +21,7 @@ import { recommendationVideoConverter } from "@/converters/recommendation-video.
 import { ResVideosModel } from "@/models/video.model";
 import { videoInfoConverter } from "@/converters/video-info.converter";
 import { VideoWatchModel } from "@/models/video-card.model";
+import { commentConverter } from "@/converters/comment.converter";
 
 export const getVideoInfo = async (
   videoId: string,
@@ -29,21 +31,19 @@ export const getVideoInfo = async (
   return videoInfoConverter(items[0]);
 };
 
-export const getVideoComment = async (videoId: string, nextPage = "") => {
-  try {
-    const { items, nextPageToken } = await fetcher<ResComments>(
-      getCommentByVideoUrl(videoId, nextPage),
-    );
+export const getVideoComment = async (
+  videoId: string,
+  nextPage = "",
+): Promise<ResponseComments> => {
+  const { items, nextPageToken, pageInfo } = await fetcher<ResComments>(
+    getCommentByVideoUrl(videoId, nextPage),
+  );
 
-    return {
-      items,
-      nextPageToken,
-    };
-  } catch (error) {
-    if (error instanceof Error) {
-      console.log("error", error.message);
-    }
-  }
+  return {
+    comments: items.map(commentConverter),
+    totalResults: "" + pageInfo.totalResults,
+    nextPageToken,
+  };
 };
 
 export const getVideoByMainVideo = async (
@@ -51,9 +51,7 @@ export const getVideoByMainVideo = async (
   nextPage = "",
 ): Promise<ResponseRecommendations> => {
   try {
-    const {
-      data: { items, nextPageToken, pageInfo },
-    } = await axios.get<ResSearchModel>(
+    const { items, nextPageToken, pageInfo } = await fetcher<ResSearchModel>(
       getVideoByMainVideoUrl(videoKeys.slice(0, 3).join("|"), nextPage),
     );
 

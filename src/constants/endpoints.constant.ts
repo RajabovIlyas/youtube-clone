@@ -6,8 +6,15 @@ interface VideoUrlParams {
   searchQuery?: string;
 }
 
+interface CommentUrlParams extends Omit<VideoUrlParams, "searchQuery"> {
+  videoId: string;
+}
+
 export const getVideoUrl = ({ searchQuery, nextPageToken }: VideoUrlParams) =>
   `/api/videos?&nextPageToken=${nextPageToken || ""}`;
+
+export const getCommentUrl = ({ videoId, nextPageToken }: CommentUrlParams) =>
+  `/api/comments?videoId=${videoId}&nextPageToken=${nextPageToken || ""}`;
 
 export const getVideoForWatchUrl = (videoId: string) =>
   `/api/watch?id=${videoId}`;
