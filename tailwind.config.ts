@@ -16,6 +16,9 @@ const config: Config = {
       maxHeight: {
         "128": "32rem",
       },
+      height: {
+        "128": "32rem",
+      },
       gridTemplateColumns: {
         "auto-fill-320": "repeat(auto-fill, minmax(320px, 1fr))",
         "auto-fit-320": "repeat(auto-fit, minmax(320px, 1fr))",

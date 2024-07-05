@@ -8,6 +8,7 @@ import {
 import "./video-card.style.css";
 import Link from "next/link";
 import Image from "next/image";
+import ChannelImage from "@/components/ChannelImage";
 
 const VideoCard: FC<VideoCardModel> = ({
   id,
@@ -22,7 +23,6 @@ const VideoCard: FC<VideoCardModel> = ({
   channelId,
 }) => {
   const videoWatchUrl = getVideoWatchUrl(id);
-  const channelUrl = getChannelPageUrl(channelId);
   return (
     <div className="video-card-container">
       <div className="video-card_img-box">
@@ -42,16 +42,11 @@ const VideoCard: FC<VideoCardModel> = ({
       </div>
       <div className="flex gap-2">
         <div className="min-w-10">
-          <Link href={channelUrl}>
-            <Image
-              width={40}
-              height={40}
-              src={channelImg}
-              className="video-card_channel-img"
-              alt={channelName}
-              loading="lazy"
-            />
-          </Link>
+          <ChannelImage
+            channelId={channelId}
+            channelName={channelName}
+            channelImg={channelImg}
+          />
         </div>
         <Link href={videoWatchUrl}>
           <div className="video-card_description">

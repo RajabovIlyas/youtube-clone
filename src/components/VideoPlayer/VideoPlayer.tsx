@@ -13,6 +13,7 @@ import ShareIcon from "@/components/icons/ShareIcon";
 import DownloadIcon from "@/components/icons/DownloadIcon";
 import VideoIcon from "@/components/icons/VideoIcon";
 import AboutIcon from "@/components/icons/AboutIcon";
+import ChannelImage from "@/components/ChannelImage";
 
 interface VideoPlayerProps extends VideoWatchModel {}
 
@@ -40,7 +41,7 @@ const VideoPlayer: FC<VideoPlayerProps> = ({
 
   const onShowDescription = () => setShowDescription((value) => !value);
   return (
-    <div className="w-full flex flex-col gap-4">
+    <>
       <div className="w-full min-h-96 max-h-128 bg-zinc-900 block rounded-2xl">
         <video controls autoPlay className="w-full max-h-128 rounded-2xl">
           <source src={watchUrl} type="video/mp4" />
@@ -51,16 +52,11 @@ const VideoPlayer: FC<VideoPlayerProps> = ({
         <div className="flex justify-between">
           <div className="flex items-center gap-4">
             <div className="flex gap-3 items-center">
-              <Link href={channelUrl}>
-                <Image
-                  width={40}
-                  height={40}
-                  src={channelImg}
-                  className="rounded-full w-10 h-10 object-cover hover:border-2 border-solid border-sky-600 transition-all duration-75"
-                  alt={channelName}
-                  loading="lazy"
-                />
-              </Link>
+              <ChannelImage
+                channelId={channelId}
+                channelName={channelName}
+                channelImg={channelImg}
+              />
               <div className="flex flex-col">
                 <Link href={channelUrl}>
                   <h4 className="text-base">{channelName}</h4>
@@ -110,16 +106,11 @@ const VideoPlayer: FC<VideoPlayerProps> = ({
         {showDescription || (
           <>
             <div className="flex gap-3 items-center py-4">
-              <Link href={channelUrl}>
-                <Image
-                  width={40}
-                  height={40}
-                  src={channelImg}
-                  className="rounded-full w-10 h-10 object-cover hover:border-2 border-solid border-sky-600 transition-all duration-75"
-                  alt={channelName}
-                  loading="lazy"
-                />
-              </Link>
+              <ChannelImage
+                channelId={channelId}
+                channelName={channelName}
+                channelImg={channelImg}
+              />
               <div className="flex flex-col">
                 <Link href={channelUrl}>
                   <h4 className="text-base">{channelName}</h4>
@@ -150,7 +141,7 @@ const VideoPlayer: FC<VideoPlayerProps> = ({
           {showDescription ? "show more" : "show less"}
         </button>
       </div>
-    </div>
+    </>
   );
 };
 

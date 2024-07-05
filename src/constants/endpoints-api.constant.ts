@@ -32,7 +32,7 @@ export const getVideoByMainVideoUrl = (videoTitle: string, pageToken = "") =>
   `${BASE_URL}/search?part=snippet&maxResults=8&type=video&order=viewCount&videoDuration=medium&order=rating` +
   `&q=${videoTitle}&key=${process.env.GOOGLE_API_KEY_98}`;
 export const getCommentByVideoUrl = (videoId: string, pageToken = "") =>
-  `${BASE_URL}/commentThreads?part=snippet,Creplies&order=relevance&textFormat=plainText` +
+  `${BASE_URL}/commentThreads?part=snippet,replies&order=relevance&textFormat=plainText&maxResults=8` +
   `&pageToken=${pageToken}&videoId=${videoId}&key=${process.env.GOOGLE_API_KEY_1}`;
 
 export const videoInfoUrl = `${YOUTUBE_URL}/youtubei/v1/player`;

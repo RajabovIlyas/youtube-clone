@@ -1,4 +1,4 @@
-export interface CommentModel {
+export interface ResCommentModel {
   kind: string;
   etag: string;
   id: string;
@@ -22,7 +22,7 @@ export interface CommentModel {
         };
         canRate: true;
         viewerRating: string;
-        likeCount: 463;
+        likeCount: number;
         publishedAt: string;
         updatedAt: string;
       };
@@ -32,7 +32,7 @@ export interface CommentModel {
     isPublic: boolean;
   };
   replies: {
-    comments: Pick<CommentModel, "replies">[];
+    comments: Pick<ResCommentModel, "replies">[];
   };
 }
 
@@ -44,5 +44,16 @@ export interface ResComments {
     totalResults: number;
     resultsPerPage: number;
   };
-  items: CommentModel[];
+  items: ResCommentModel[];
+}
+
+export interface CommentModel {
+  id: string;
+  publishedAt: string;
+  likeCount: string;
+  channelName: string;
+  channelImg: string;
+  channelId: string;
+  commentDisplay: string;
+  comments: Omit<CommentModel, "comments">[];
 }

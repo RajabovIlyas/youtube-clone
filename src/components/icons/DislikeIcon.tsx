@@ -1,12 +1,17 @@
-"use client";
-const DislikeIcon = () => (
+import { FC } from "react";
+
+interface DislikeIconProps {
+  className?: string;
+}
+
+const DislikeIcon: FC<DislikeIconProps> = ({ className }) => (
   <svg
     fill="#000000"
     viewBox="0 0 24 24"
     id="like"
     data-name="Line Color"
     xmlns="http://www.w3.org/2000/svg"
-    className="size-6 dark:fill-slate-200 fill-black rotate-180"
+    className={"size-6 dark:fill-slate-200 fill-black rotate-180 " + className}
   >
     <path
       id="primary"

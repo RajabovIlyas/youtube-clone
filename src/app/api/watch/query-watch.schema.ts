@@ -7,10 +7,8 @@ export const queryWatchSchema = z.object({
 
 export const checkWatchPrams = (url: string) => {
   const { searchParams } = new URL(url);
-  const videoId = searchParams.get("id");
-  const quality = searchParams.get("quality");
   return queryWatchSchema.parse({
-    videoId,
-    quality,
+    videoId: searchParams.get("id"),
+    quality: searchParams.get("quality"),
   });
 };

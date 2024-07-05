@@ -1,12 +1,16 @@
-"use client";
-const LikeIcon = () => (
+import { FC } from "react";
+
+interface LikeIconProps {
+  className?: string;
+}
+const LikeIcon: FC<LikeIconProps> = ({ className }) => (
   <svg
     fill="#000000"
     viewBox="0 0 24 24"
     id="like"
     data-name="Line Color"
     xmlns="http://www.w3.org/2000/svg"
-    className="size-6 dark:fill-slate-200 fill-black"
+    className={"size-6 dark:fill-slate-200 fill-black " + className}
   >
     <path
       id="primary"

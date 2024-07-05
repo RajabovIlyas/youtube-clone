@@ -1,4 +1,3 @@
-"use client";
 const LogoIcon = () => (
   <svg
     fill="#000000"

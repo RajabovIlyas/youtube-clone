@@ -18,5 +18,7 @@ export type RecommendationVideoModel = Omit<
 
 export type VideoWatchModel = Omit<VideoCardModel, "img"> & {
   likes: string;
+  keywords: string[];
   channelFollowers: string;
+  commentCount: string;
 };
