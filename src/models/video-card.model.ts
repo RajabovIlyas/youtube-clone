@@ -10,3 +10,13 @@ export interface VideoCardModel {
   views: string;
   publishedAt: string;
 }
+
+export type RecommendationVideoModel = Omit<
+  VideoCardModel,
+  "channelImg" | "description"
+>;
+
+export type VideoWatchModel = Omit<VideoCardModel, "img"> & {
+  likes: string;
+  channelFollowers: string;
+};

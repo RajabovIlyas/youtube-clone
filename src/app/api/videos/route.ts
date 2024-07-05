@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { checkVideoPrams } from "@/app/api/videos/query-videos.schema";
-import { getVideos, getVideosBySearchQuery } from "@/servers/video.sever";
+import { getVideos, getVideosBySearchQuery } from "@/servers/video.server";
 
 interface NextApiResponse extends NextResponse {
   params: { videoName: string };

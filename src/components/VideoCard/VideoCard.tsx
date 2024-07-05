@@ -57,8 +57,9 @@ const VideoCard: FC<VideoCardModel> = ({
           <div className="video-card_description">
             <p className="line-clamp-2 font-bold">{title}</p>
             <p className="video-card_channel-title">{channelName}</p>
-            <div className="text-zinc-700 dark:text-gray-400">
+            <div className="text-zinc-700 dark:text-gray-400 flex gap-1 items-center">
               <span className="text-sm">{views} views</span>
+              <span>•</span>
               <span className="video-card_publish">{publishedAt}</span>
             </div>
           </div>

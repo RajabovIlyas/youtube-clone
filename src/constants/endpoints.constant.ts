@@ -8,3 +8,6 @@ interface VideoUrlParams {
 
 export const getVideoUrl = ({ searchQuery, nextPageToken }: VideoUrlParams) =>
   `/api/videos?&nextPageToken=${nextPageToken || ""}`;
+
+export const getVideoForWatchUrl = (videoId: string) =>
+  `/api/watch?id=${videoId}`;

@@ -1,5 +1,5 @@
 import VideoContainer from "@/components/VideoContainer";
-import { getVideos, getVideosBySearchQuery } from "@/servers/video.sever";
+import { getVideos, getVideosBySearchQuery } from "@/servers/video.server";
 
 interface HomeProps {
   searchParams: { searchQuery?: string };
