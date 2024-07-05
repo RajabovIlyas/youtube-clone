@@ -34,6 +34,6 @@
     }
 
     .video-card_publish {
-        @apply before:content-["•"] before:mx-1 text-sm
+        @apply text-sm
     }
 }
