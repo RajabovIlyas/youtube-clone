@@ -4,7 +4,7 @@ import AddIcon from "@/components/icons/AddIcon";
 import SearchIcon from "@/components/icons/SearchIcon";
 import LogoIcon from "@/components/icons/LogoIcon";
 import UserIcon from "@/components/icons/UserIcon";
-import { Suspense, useState } from "react";
+import { useState } from "react";
 import BackIcon from "@/components/icons/BackIcon";
 import { useResize } from "@/components/Header/use-resize.hook";
 import Link from "next/link";
@@ -20,14 +20,14 @@ const Header = () => {
 
   if (searchShow && !isScreenSm) {
     return (
-      <header className="header-container">
+      <header className="header-container relative">
         <button
           className="header-container_item"
           onClick={openSearchShow(false)}
         >
           <BackIcon />
         </button>
-        <SearchForm className="flex py-2" />
+        <SearchForm className="flex py-2 " />
       </header>
     );
   }
@@ -43,7 +43,7 @@ const Header = () => {
           </div>
         </div>
       </Link>
-      <SearchForm className="sm:flex hidden" />
+      <SearchForm className="sm:flex hidden relative" />
       <ul className="header-container_items">
         <li className="sm:hidden">
           <button

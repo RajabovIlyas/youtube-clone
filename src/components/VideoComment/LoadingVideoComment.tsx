@@ -1,6 +1,3 @@
-import LikeIcon from "@/components/icons/LikeIcon";
-import DislikeIcon from "@/components/icons/DislikeIcon";
-
 const LoadingVideoComment = () => {
   return (
     <div className="flex gap-4 w-full">

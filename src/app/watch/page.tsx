@@ -1,16 +1,11 @@
-import RecommendationCard from "@/components/RecommendationCard";
-import { RecommendationVideoModel } from "@/models/video-card.model";
 import {
   getVideoByMainVideo,
   getVideoComment,
   getVideoInfo,
 } from "@/servers/watch-video.server";
 import RecommendationContainer from "@/components/RecommendationContainer";
-import LoadingRecommendationCard from "@/components/RecommendationCard/LoadingRecommendationCard";
 import VideoPlayer from "@/components/VideoPlayer";
 import CommentContainer from "@/components/CommentContainer";
-import { LOADER_ITEMS } from "@/constants/default.constant";
-import LoadingVideoComment from "@/components/VideoComment/LoadingVideoComment";
 
 interface WatchProps {
   searchParams: { v: string };

@@ -10,7 +10,7 @@
     }
 
     .video-card_img {
-        @apply rounded-lg w-full min-h-44 shadow-md dark:shadow-none
+        @apply rounded-lg w-full min-h-44 shadow-md dark:shadow-none bg-zinc-200 dark:bg-zinc-900
     }
 
     .video-card_img-time-box {

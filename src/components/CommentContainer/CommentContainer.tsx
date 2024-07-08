@@ -25,8 +25,14 @@ const CommentContainer: FC<CommentContainerProps> = (props) => {
         {comments.map((comment) => (
           <VideoComment key={comment.id} {...comment} />
         ))}
-        {loading &&
-          LOADER_ITEMS.map((key) => <LoadingVideoComment key={key} />)}
+
+        {loading && (
+          <div className="flex flex-col gap-3 animate-pulse">
+            {LOADER_ITEMS.map((key) => (
+              <LoadingVideoComment key={key} />
+            ))}
+          </div>
+        )}
         <LoadingVideoComment />
       </div>
     </>
