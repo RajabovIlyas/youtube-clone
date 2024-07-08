@@ -2,7 +2,7 @@
 
 @layer components {
     .header-container {
-        @apply sticky pb-3  px-4 top-0 z-20 flex justify-between items-center gap-2 bg-slate-50 dark:bg-black
+        @apply sticky pb-3  mx-4 top-0 z-20 flex justify-between items-center gap-2 bg-slate-50 dark:bg-black
     }
 
     .header__back-btn {

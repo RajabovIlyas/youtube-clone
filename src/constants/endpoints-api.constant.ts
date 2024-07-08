@@ -43,3 +43,6 @@ export const getVideoInfoBody = (videoId: string) => ({
     client: { clientName: "WEB", clientVersion: "2.20230810.05.00" },
   },
 });
+
+export const urlForSearchVariation = (searchQuery: string) =>
+  `https://corsproxy.io/?http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=${searchQuery}`;

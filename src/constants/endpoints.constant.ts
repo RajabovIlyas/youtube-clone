@@ -1,3 +1,5 @@
+import { urlForSearchVariation } from "@/constants/endpoints-api.constant";
+
 export const getVideoWatchUrl = (id: string) => `/watch?v=${id}`;
 export const getChannelPageUrl = (channelId: string) => `/channel/${channelId}`;
 
@@ -18,3 +20,6 @@ export const getCommentUrl = ({ videoId, nextPageToken }: CommentUrlParams) =>
 
 export const getVideoForWatchUrl = (videoId: string) =>
   `/api/watch?id=${videoId}`;
+
+export const getSearchVariation = (searchQuery: string) =>
+  `/api/search?searchQuery=${searchQuery}`;
