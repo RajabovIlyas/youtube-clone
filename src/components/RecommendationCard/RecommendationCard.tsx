@@ -42,7 +42,7 @@ const RecommendationCard: FC<RecommendationVideoModel> = ({
       <div className="flex gap-2 ">
         <Link href={videoWatchUrl}>
           <div className="recommendation-card_description">
-            <p className="line-clamp-2 font-bold text-sm  max-w-64">{title}</p>
+            <p className="line-clamp-2 font-bold text-sm max-w-64">{title}</p>
             <Link href={channelUrl}>
               <p className="recommendation-card_channel-title">{channelName}</p>
             </Link>

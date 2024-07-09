@@ -1,39 +1,39 @@
 @tailwind components;
 
 @layer components {
-    .header-container {
-        @apply sticky pb-3  mx-4 top-0 z-20 flex justify-between items-center gap-2 bg-slate-50 dark:bg-black
-    }
+  .header-container {
+    @apply sticky pb-3  mx-4 top-0 z-20 flex justify-between items-center gap-2 bg-slate-50 dark:bg-black;
+  }
 
-    .header__back-btn {
-        @apply w-10 h-10 rounded-full flex justify-center items-center bg-zinc-200 dark:hover:bg-zinc-800 cursor-pointer
-    }
+  .header__back-btn {
+    @apply w-10 h-10 rounded-full flex justify-center items-center bg-zinc-200 dark:hover:bg-zinc-800 cursor-pointer;
+  }
 
-    .header-search_input {
-        @apply h-10 w-full pl-5 pr-2 bg-slate-50 rounded-l-full border border-r-0 border-zinc-200 dark:bg-zinc-900 dark:border-0 focus-visible:outline-0
-    }
+  .header-search_input {
+    @apply h-10 w-full pl-5 pr-2 bg-slate-50 rounded-l-full border border-r-0 border-zinc-200 dark:bg-zinc-900 dark:border-0 focus-visible:outline-0;
+  }
 
-    .header-search_form {
-        @apply max-w-xl flex-grow justify-center items-center
-    }
+  .header-search_form {
+    @apply max-w-xl flex-grow justify-center items-center;
+  }
 
-    .header-search_btn {
-        @apply flex justify-center items-center px-3 rounded-r-full w-16 h-10 border border-zinc-200 border-l-0 hover:bg-zinc-200 dark:border-0 dark:bg-zinc-900 dark:hover:bg-zinc-800
-    }
+  .header-search_btn {
+    @apply flex justify-center items-center px-3 rounded-r-full w-16 h-10 border border-zinc-200 border-l-0 hover:bg-zinc-200 dark:border-0 dark:bg-zinc-900 dark:hover:bg-zinc-800;
+  }
 
-    .header-container_logo {
-        @apply py-3 sm:px-3 flex gap-1
-    }
+  .header-container_logo {
+    @apply py-3 sm:px-3 flex gap-1;
+  }
 
-    .header-container_items {
-        @apply flex justify-center items-center gap-1 sm:gap-2 sm:px-3 py-2
-    }
+  .header-container_items {
+    @apply flex justify-center items-center gap-1 sm:gap-2 sm:px-3 py-2;
+  }
 
-    .header-container_item {
-        @apply w-10 h-10 rounded-full flex justify-center items-center hover:bg-zinc-200 dark:hover:bg-zinc-800 cursor-pointer
-    }
+  .header-container_item {
+    @apply w-10 h-10 rounded-full flex justify-center items-center hover:bg-zinc-200 dark:hover:bg-zinc-800 cursor-pointer;
+  }
 
-    .header-container_user {
-        @apply w-8 h-8 rounded-full  flex justify-center items-center bg-sky-500 hover:bg-sky-600 dark:hover:bg-sky-700 dark:bg-sky-600 cursor-pointer
-    }
+  .header-container_user {
+    @apply w-8 h-8 rounded-full  flex justify-center items-center bg-sky-500 hover:bg-sky-600 dark:hover:bg-sky-700 dark:bg-sky-600 cursor-pointer;
+  }
 }
