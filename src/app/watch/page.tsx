@@ -29,7 +29,7 @@ export default async function Watch({ searchParams: { v } }: WatchProps) {
           totalResults={videoInfo.commentCount}
         />
       </div>
-      <div className="basis-1/4">
+      <div className="basis-1/4 hidden lg:flex">
         <RecommendationContainer {...recommendations} />
       </div>
     </main>

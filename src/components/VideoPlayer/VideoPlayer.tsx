@@ -14,6 +14,7 @@ import DownloadIcon from "@/components/icons/DownloadIcon";
 import VideoIcon from "@/components/icons/VideoIcon";
 import AboutIcon from "@/components/icons/AboutIcon";
 import ChannelImage from "@/components/ChannelImage";
+import "./video-player.style.css";
 
 interface VideoPlayerProps extends VideoWatchModel {}
 
@@ -42,14 +43,14 @@ const VideoPlayer: FC<VideoPlayerProps> = ({
   const onShowDescription = () => setShowDescription((value) => !value);
   return (
     <>
-      <div className="w-full min-h-96 max-h-128 bg-zinc-900 block rounded-2xl">
+      <div className="video-player">
         <video controls autoPlay className="w-full max-h-128 rounded-2xl">
           <source src={watchUrl} type="video/mp4" />
         </video>
       </div>
       <div>
         <h1 className="text-xl font-bold mb-2">{title}</h1>
-        <div className="flex justify-between">
+        <div className="flex justify-between gap-2">
           <div className="flex items-center gap-4">
             <div className="flex gap-3 items-center">
               <ChannelImage
@@ -66,39 +67,35 @@ const VideoPlayer: FC<VideoPlayerProps> = ({
                 </span>
               </div>
             </div>
-            <button className="bg-zinc-900 min-w-10 px-4 h-10 rounded-full text-sm">
-              Subscribe
-            </button>
+            <button className="video-player_btn ">Subscribe</button>
           </div>
-          <ul className="flex items-center gap-2">
+          <ul className="items-center gap-2 xl:flex hidden">
             <li className="flex items-center">
-              <button className="bg-zinc-900 min-w-10 pl-4 h-10  rounded-full rounded-r-none text-sm flex items-center gap-1 after:w-px after:ml-2 after:h-3/4 after:bg-zinc-800 ">
+              <button className="video-player_btn-like">
                 <LikeIcon />
                 {likes}
               </button>
-              <button className="bg-zinc-900 min-w-10 pr-4 pl-2 h-10 rounded-full rounded-l-none text-sm">
+              <button className="video-player_btn-dislike">
                 <DislikeIcon />
               </button>
             </li>
             <li>
-              <button className="bg-zinc-900 min-w-10 px-4 h-10 rounded-full text-sm flex items-center gap-1">
+              <button className="video-player_btn-icon ">
                 <ShareIcon /> Share
               </button>
             </li>
             <li>
-              <button className="bg-zinc-900 min-w-10 px-4 h-10 rounded-full text-sm flex items-center gap-1">
+              <button className="video-player_btn-icon ">
                 <DownloadIcon /> Download
               </button>
             </li>
-            <li>
-              <button className="bg-zinc-900 w-10 h-10 rounded-full text-xs">
-                •••
-              </button>
-            </li>
           </ul>
+          <button className="video-player_btn text-xs xl:hidden block ">
+            •••
+          </button>
         </div>
       </div>
-      <div className="rounded-2xl w-full bg-zinc-900 p-4">
+      <div className="rounded-2xl w-full bg-zinc-200 dark:bg-zinc-900 p-4">
         <p className="text-sm font-bold">
           {views} views {publishedAt}
         </p>
@@ -122,12 +119,12 @@ const VideoPlayer: FC<VideoPlayerProps> = ({
             </div>
             <ul className="py-4 flex items-center gap-4">
               <li>
-                <button className="border border-zinc-800 min-w-10 px-4 h-10 rounded-full text-sm flex items-center gap-1">
+                <button className="video-player_btn-icon border border-zinc-800">
                   <VideoIcon /> Videos
                 </button>
               </li>
               <li>
-                <button className="border border-zinc-800 min-w-10 px-4 h-10 rounded-full text-sm flex items-center gap-1">
+                <button className="video-player_btn-icon border border-zinc-800">
                   <AboutIcon /> About
                 </button>
               </li>
