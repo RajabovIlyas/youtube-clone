@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { FC } from "react";
 import { RecommendationVideoModel } from "@/models/video-card.model";
 import {
@@ -26,10 +25,8 @@ const RecommendationCard: FC<RecommendationVideoModel> = ({
     <div className="recommendation-card-container">
       <div className="recommendation-card_img-box">
         <Link href={videoWatchUrl}>
-          <Image
+          <img
             src={img}
-            width={160}
-            height={90}
             className="recommendation-card_img"
             alt={title}
             loading="lazy"

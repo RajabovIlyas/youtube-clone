@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { getChannelPageUrl } from "@/constants/endpoints.constant";
 import { FC } from "react";
@@ -18,9 +17,7 @@ const ChannelImage: FC<ChannelImageProps> = ({
   const channelUrl = getChannelPageUrl(channelId);
   return (
     <Link href={channelUrl}>
-      <Image
-        width={40}
-        height={40}
+      <img
         src={channelImg}
         className="channel-img"
         alt={channelName}

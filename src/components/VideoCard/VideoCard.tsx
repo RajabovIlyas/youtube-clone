@@ -1,13 +1,9 @@
 "use client";
 import { FC } from "react";
 import { VideoCardModel } from "@/models/video-card.model";
-import {
-  getChannelPageUrl,
-  getVideoWatchUrl,
-} from "@/constants/endpoints.constant";
+import { getVideoWatchUrl } from "@/constants/endpoints.constant";
 import "./video-card.style.css";
 import Link from "next/link";
-import Image from "next/image";
 import ChannelImage from "@/components/ChannelImage";
 
 const VideoCard: FC<VideoCardModel> = ({
@@ -27,10 +23,8 @@ const VideoCard: FC<VideoCardModel> = ({
     <div className="video-card-container">
       <div className="video-card_img-box">
         <Link href={videoWatchUrl}>
-          <Image
+          <img
             src={img}
-            width={320}
-            height={180}
             className="video-card_img"
             alt={title}
             loading="lazy"
