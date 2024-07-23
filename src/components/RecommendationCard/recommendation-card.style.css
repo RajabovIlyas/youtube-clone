@@ -10,7 +10,7 @@
   }
 
   .recommendation-card_img {
-    @apply rounded-lg shadow-md bg-zinc-200 dark:bg-zinc-900 dark:shadow-none;
+    @apply rounded-lg shadow-md bg-zinc-200 dark:bg-zinc-900 dark:shadow-none w-40 h-20 ;
   }
 
   .recommendation-card_img-time-box {
